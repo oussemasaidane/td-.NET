@@ -12,16 +12,20 @@ namespace AM.ApplicationCore.Domain
         public Passenger()
         {
         }
+        [DataType(DataType.Date),Display(Name ="Date of Birth")]//controle de saisie
 
         public DateTime BirthDate { get; set; }
 
-        [Key]
+        [Key,MaxLength(7)]
         public int PassportNumber { get; set; }
 
         [DataType(DataType.EmailAddress)]//controle de saisie
         public string? EmailAddress { get; set; }
+        [MinLength(3,ErrorMessage = "n'est pas respecté "),MaxLength(25,ErrorMessage ="n'est pas respecté ")]
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+        [MinLength(8), MaxLength(8)]
+
         public int TelNumber { get; set; }
 
         public IList<Flight> Flights { get; set; }
