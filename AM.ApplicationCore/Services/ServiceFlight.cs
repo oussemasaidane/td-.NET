@@ -80,10 +80,10 @@ namespace AM.ApplicationCore.Services
             var req1 = flights
                 .Where(f => f.plane == plane)
                 .Select(f => new { f.FlightDate, f.Destination });
-                foreach (var item in req1)
-                {
+            foreach (var item in req1)
+            {
                 Console.WriteLine(item.Destination + "" + item.FlightDate);
-                }
+            }
         }
 
 
@@ -186,7 +186,7 @@ namespace AM.ApplicationCore.Services
             //            select f;
 
             //return query;
-            
+
             // syntaxe de requete
             //var query = from f in flights
             //            orderby f.EstimateDuration descending
@@ -194,8 +194,8 @@ namespace AM.ApplicationCore.Services
             //return query;
 
             // syntaxe de methode
-             return flights
-                .OrderByDescending(f => f.FlightDate);
+            return flights
+               .OrderByDescending(f => f.FlightDate);
         }
 
         public IEnumerable<Traveller> SeniorTravellers(Flight flight)
@@ -205,21 +205,21 @@ namespace AM.ApplicationCore.Services
             //            select p;
 
             //return query.Take(3);
-            
+
             //syntaxe de requete
-            var query = (from f in flights  
-                        where f.FlightId== flight.FlightId  
-                        select f).Single();
+            var query = (from f in flights
+                         where f.FlightId == flight.FlightId
+                         select f).Single();
 
             // on peut supprimer quere 
             return query.Passengers//on remplace query par flight 
                 .OfType<Traveller>()
-                .OrderBy(p=>p.BirthDate).Take(3);
-           // .skip(query, 3); ignorer les 3 premiers
+                .OrderBy(p => p.BirthDate).Take(3);
+            // .skip(query, 3); ignorer les 3 premiers
 
         }
 
-        public IEnumerable<IGrouping<string,Flight>> DestinationGroupedFlights()
+        public IEnumerable<IGrouping<string, Flight>> DestinationGroupedFlights()
         {
             //var reqLambda = flights.GroupBy(f => f.Destination);
             //foreach (var group in reqLambda)
@@ -234,13 +234,13 @@ namespace AM.ApplicationCore.Services
 
             var req = flights
                 .GroupBy(f => f.Destination);
-            foreach(var item in req)
+            foreach (var item in req)
             {
-                Console.WriteLine("destination:"+item.Key);
-                foreach(var item1 in item)
+                Console.WriteLine("destination:" + item.Key);
+                foreach (var item1 in item)
                 {
-                    Console.WriteLine("decollage:"+item1.FlightDate);
-                }                
+                    Console.WriteLine("decollage:" + item1.FlightDate);
+                }
             }
             return req;
         }
@@ -248,5 +248,30 @@ namespace AM.ApplicationCore.Services
         public Action<Plane> FlightDetailsDel;
         public Func<string, double> DurationAverageDel;
 
+        public ServiceFlight()
+        {
+            FlightDetailsDel = plane =>
+        {
+
+            // syntaxe de methode 
+            var req1 = flights
+                .Where(f => f.plane == plane)
+                .Select(f => new { f.FlightDate, f.Destination });
+            foreach (var item in req1)
+            {
+                Console.WriteLine(item.Destination + "" + item.FlightDate);
+            }
+        };
+            DurationAverageDel = destination =>
+        {
+            //syntaxe de methode 
+            var query = flights
+                .Where(f => f.Destination == destination)
+                .Average(f => f.EstimateDuration);
+            return query;
+
+        };
+
+        }
     }
 }

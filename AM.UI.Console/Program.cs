@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello, World!");
 using AM.ApplicationCore.Domain;
+using AM.ApplicationCore.Services;
 
 //Personne personne = new Personne();
 //personne.Id = 0;
@@ -40,9 +41,11 @@ using AM.ApplicationCore.Domain;
 
 //Plane avion = new Plane(PlaneType.Boing, 1, DateTime.Now);
 
-Passenger passenger = new Passenger();
-passenger.FirstName = "passenger";
-passenger.LastName = "passenger";
-passenger.PassengerType();
+//Passenger passenger = new Passenger();
+//passenger.FirstName = "passenger";
+//passenger.LastName = "passenger";
+//passenger.PassengerType();
 
 
+int x = 45;
+Console.WriteLine(x.add(4));
