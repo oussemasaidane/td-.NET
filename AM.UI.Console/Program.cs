@@ -49,3 +49,12 @@ using AM.ApplicationCore.Services;
 
 int x = 45;
 Console.WriteLine(x.add(4));
+Passenger p = new Passenger()
+{
+    FirstName = "ssss",
+    LastName = "ddd"
+
+};
+
+p.UpperFullName();
+Console.WriteLine(p);
