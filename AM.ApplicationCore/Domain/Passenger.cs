@@ -17,6 +17,8 @@ namespace AM.ApplicationCore.Domain
 
         [Key]
         public int PassportNumber { get; set; }
+
+        [DataType(DataType.EmailAddress)]//controle de saisie
         public string? EmailAddress { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
