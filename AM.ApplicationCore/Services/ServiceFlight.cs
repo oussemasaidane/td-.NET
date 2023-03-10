@@ -208,7 +208,7 @@ namespace AM.ApplicationCore.Services
 
             //syntaxe de requete
             var query = (from f in flights
-                         where f.FlightId == flight.FlightId
+                         where f.PlaneId == flight.PlaneId
                          select f).Single();
 
             // on peut supprimer quere 

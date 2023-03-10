@@ -47,14 +47,17 @@ using AM.ApplicationCore.Services;
 //passenger.PassengerType();
 
 
-int x = 45;
-Console.WriteLine(x.add(4));
-Passenger p = new Passenger()
-{
-    FirstName = "ssss",
-    LastName = "ddd"
+//int x = 45;
+//Console.WriteLine(x.add(4));
+//Passenger p = new Passenger()
+//{
+//    FirstName = "ssss",
+//    LastName = "ddd"
 
-};
+//};
 
-p.UpperFullName();
-Console.WriteLine(p);
+//p.UpperFullName();
+//Console.WriteLine(p);
+
+
+Passenger pass1 = new Passenger();

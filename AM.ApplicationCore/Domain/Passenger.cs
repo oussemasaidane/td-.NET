@@ -21,9 +21,12 @@ namespace AM.ApplicationCore.Domain
 
         [DataType(DataType.EmailAddress)]//controle de saisie
         public string? EmailAddress { get; set; }
-        [MinLength(3,ErrorMessage = "n'est pas respecté "),MaxLength(25,ErrorMessage ="n'est pas respecté ")]
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
+
+        //[MinLength(3,ErrorMessage = "n'est pas respecté "),MaxLength(25,ErrorMessage ="n'est pas respecté ")]
+        //public string? FirstName { get; set; }
+        //public string? LastName { get; set; }
+        public FullName fullName { get; set; }
+
         [MinLength(8), MaxLength(8)]
 
         public int TelNumber { get; set; }
@@ -35,28 +38,28 @@ namespace AM.ApplicationCore.Domain
             return $"BirthDate: {BirthDate}," +
                 $" PassportNumber: {PassportNumber}, " +
                 $"EmailAddress: {EmailAddress}," +
-                $" FirstName: {FirstName}," +
-                $" LastName: {LastName}, " +
+                //$" FirstName: {FirstName}," +
+                //$" LastName: {LastName}, " +
                 $"TelNumber: {TelNumber}";
         }
 
-        public bool CheckProfile(string nom, string prenom)
-        {
-            return nom == FirstName && prenom == LastName;
-        }
+        //public bool CheckProfile(string nom, string prenom)
+        //{
+        //    return nom == FirstName && prenom == LastName;
+        //}
 
-        public bool CheckProfile(string nom, string prenom, string email)
-        {
-            return nom == FirstName && prenom == LastName && email == EmailAddress;
-        }
+        //public bool CheckProfile(string nom, string prenom, string email)
+        //{
+        //    return nom == FirstName && prenom == LastName && email == EmailAddress;
+        //}
 
-        public bool CheckProfile1(string nom, string prenom, string email=null)
-        {
-            if (email != null)
-                return nom == FirstName && prenom == LastName && email == EmailAddress;
-            else
-                return nom == FirstName && prenom == LastName;
-        }
+        //public bool CheckProfile1(string nom, string prenom, string email=null)
+        //{
+        //    if (email != null)
+        //        return nom == FirstName && prenom == LastName && email == EmailAddress;
+        //    else
+        //        return nom == FirstName && prenom == LastName;
+        //}
 
         public virtual void PassengerType()
         {
