@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AN.UI.WEB.props" />
+</Project>
