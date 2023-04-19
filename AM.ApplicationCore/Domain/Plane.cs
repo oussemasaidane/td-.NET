@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,12 @@ namespace AM.ApplicationCore.Domain
         [Range(0, int.MaxValue)]
         public int Capacity { get; set; }
         //prop de navigation
+        [NotMapped]
+
+        public String  Information
+        {
+            get { return PlaneId + "-" + ManufactureDate + "-" + Capacity; }
+        }
         public virtual List<Flight> Flights { get; set; }
 
         //TP1-Q6: Réimplémenter la méthode ToString()

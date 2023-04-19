@@ -43,90 +43,90 @@ t1.PassengerType();
 
 
 
-//TP2-Q5:Créer une instance de la classe ServiceFlight
-ServiceFlight sf = new ServiceFlight();
-//TP2-Q5:Affecter listFlights à la propriété Flights de la classe ServiceFlight
-sf.Flights = TestData.listFlights;
+////TP2-Q5:Créer une instance de la classe ServiceFlight
+//ServiceFlight sf = new ServiceFlight();
+////TP2-Q5:Affecter listFlights à la propriété Flights de la classe ServiceFlight
+//sf.Flights = TestData.listFlights;
 
-Console.WriteLine("************************************ GetFlightDates (string destination)  ****************************** ");
-Console.WriteLine("Flight dates to Madrid");
-foreach (var item in sf.GetFlightDates("Madrid"))
-    Console.WriteLine(item);
-
-Console.WriteLine("************************************ GetFlights(string filterType, string filterValue)  ****************************** ");
-sf.GetFlights("Destination", "Paris");
-
-
-Console.WriteLine("************************************ ShowFlightDetails(Plane plane)  ****************************** ");
-sf.ShowFlightDetails(TestData.Airbusplane);
-
-Console.WriteLine("************************************ ProgrammedFlightNumber(DateTime startDate)  ****************************** ");
-Console.WriteLine("Number of programmed flights in 01/01/2022 week: ");
-Console.WriteLine(sf.ProgrammedFlightNumber(new DateTime(2022, 01, 01)));
-Console.WriteLine("************************************ DurationAverage(string destination) ****************************** ");
-Console.WriteLine("Duration average of flights to Madrid: " + sf.DurationAverage("Madrid"));
-Console.WriteLine("************************************ OrderedDurationFlights()  ****************************** ");
-foreach (var item in sf.OrderedDurationFlights())
-    Console.WriteLine(item);
-Console.WriteLine("************************************ SeniorTravellers(Flight flight) ****************************** ");
-//foreach (var item in sf.SeniorTravellers(TestData.flight1))
+//Console.WriteLine("************************************ GetFlightDates (string destination)  ****************************** ");
+//Console.WriteLine("Flight dates to Madrid");
+//foreach (var item in sf.GetFlightDates("Madrid"))
 //    Console.WriteLine(item);
-Console.WriteLine("************************************ DestinationGroupedFlights()  ****************************** ");
-sf.DestinationGroupedFlights();
-Console.WriteLine("************************************ Testing Delegates  ****************************** ");
 
-sf.FlightDetailsDel(TestData.BoingPlane);
-Console.WriteLine("Average duration of flight To Paris; " + sf.DurationAverageDel("Paris"));
-
-Console.WriteLine("************************************ Testing Extension methods  ****************************** ");
-p1.UpperFullName();
-Console.WriteLine("First Name: " + p1.FullName.FirstName + " Last Name: " + p1.FullName.LastName);
+//Console.WriteLine("************************************ GetFlights(string filterType, string filterValue)  ****************************** ");
+//sf.GetFlights("Destination", "Paris");
 
 
+//Console.WriteLine("************************************ ShowFlightDetails(Plane plane)  ****************************** ");
+//sf.ShowFlightDetails(TestData.Airbusplane);
 
-AMContext ctx = new AMContext();
-//instanciation des objets
-Plane plane1 = new Plane
-{
-    PlaneType = PlaneType.Airbus,
-    Capacity = 150,
-    ManufactureDate = new DateTime(2015, 02, 03)
-};
+//Console.WriteLine("************************************ ProgrammedFlightNumber(DateTime startDate)  ****************************** ");
+//Console.WriteLine("Number of programmed flights in 01/01/2022 week: ");
+//Console.WriteLine(sf.ProgrammedFlightNumber(new DateTime(2022, 01, 01)));
+//Console.WriteLine("************************************ DurationAverage(string destination) ****************************** ");
+//Console.WriteLine("Duration average of flights to Madrid: " + sf.DurationAverage("Madrid"));
+//Console.WriteLine("************************************ OrderedDurationFlights()  ****************************** ");
+//foreach (var item in sf.OrderedDurationFlights())
+//    Console.WriteLine(item);
+//Console.WriteLine("************************************ SeniorTravellers(Flight flight) ****************************** ");
+////foreach (var item in sf.SeniorTravellers(TestData.flight1))
+////    Console.WriteLine(item);
+//Console.WriteLine("************************************ DestinationGroupedFlights()  ****************************** ");
+//sf.DestinationGroupedFlights();
+//Console.WriteLine("************************************ Testing Delegates  ****************************** ");
 
-Flight f1 = new Flight() 
-{ 
-    Departure = "Tunis", 
-    Airline = "Tunisair", 
-    FlightDate = new DateTime(2022, 02, 01, 21, 10, 10), 
-    Destination = "Paris", 
-    EffectiveArrival = new DateTime(2022, 02, 01, 23, 10, 10), 
-    EstimatedDuration = 103, 
-    Plane = plane1
-};
+//sf.FlightDetailsDel(TestData.BoingPlane);
+//Console.WriteLine("Average duration of flight To Paris; " + sf.DurationAverageDel("Paris"));
 
-
-//Ajouter des objets aux DBSET
-//ctx.Planes.Add(plane1);
-//ctx.Flights.Add(f1);
-
-
-//persister les données
-//ctx.SaveChanges();
-Console.WriteLine(f1.Plane.PlaneId +" "+ f1.Plane.Capacity);
-Console.WriteLine(plane1.PlaneId + " " + plane1.Capacity);
+//Console.WriteLine("************************************ Testing Extension methods  ****************************** ");
+//p1.UpperFullName();
+//Console.WriteLine("First Name: " + p1.FullName.FirstName + " Last Name: " + p1.FullName.LastName);
 
 
-//Partie 6.1
 
-//ServiceFlight service = new ServiceFlight(new GenericRepository<Flight>(ctx));
+//AMContext ctx = new AMContext();
+////instanciation des objets
+//Plane plane1 = new Plane
+//{
+//    PlaneType = PlaneType.Airbus,
+//    Capacity = 150,
+//    ManufactureDate = new DateTime(2015, 02, 03)
+//};
+
+//Flight f1 = new Flight() 
+//{ 
+//    Departure = "Tunis", 
+//    Airline = "Tunisair", 
+//    FlightDate = new DateTime(2022, 02, 01, 21, 10, 10), 
+//    Destination = "Paris", 
+//    EffectiveArrival = new DateTime(2022, 02, 01, 23, 10, 10), 
+//    EstimatedDuration = 103, 
+//    Plane = plane1
+//};
+
+
+////Ajouter des objets aux DBSET
+////ctx.Planes.Add(plane1);
+////ctx.Flights.Add(f1);
+
+
+////persister les données
+////ctx.SaveChanges();
+//Console.WriteLine(f1.Plane.PlaneId +" "+ f1.Plane.Capacity);
+//Console.WriteLine(plane1.PlaneId + " " + plane1.Capacity);
+
+
+////Partie 6.1
+
+////ServiceFlight service = new ServiceFlight(new GenericRepository<Flight>(ctx));
+////service.Add(f1);
+
+////ctx.SaveChanges();
+
+////Partie 6.2
+
+//ServiceFlight service = new ServiceFlight(new UnitOfWork(ctx, typeof(GenericRepository<>)));
 //service.Add(f1);
 
 //ctx.SaveChanges();
-
-//Partie 6.2
-
-ServiceFlight service = new ServiceFlight(new UnitOfWork(ctx, typeof(GenericRepository<>)));
-service.Add(f1);
-
-ctx.SaveChanges();
 

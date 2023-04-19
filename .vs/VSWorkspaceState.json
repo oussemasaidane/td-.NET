@@ -3,8 +3,10 @@
     "",
     "\\AM.ApplicationCore",
     "\\AM.ApplicationCore\\Interfaces",
-    "\\AM.ApplicationCore\\Services"
+    "\\AM.ApplicationCore\\Services",
+    "\\AN.UI.WEB",
+    "\\AN.UI.WEB\\Controllers"
   ],
-  "SelectedNode": "\\AM.ApplicationCore\\Services\\ServicePlane.cs",
+  "SelectedNode": "\\AM.ApplicationCore\\Services\\ServiceFlight.cs",
   "PreviewInSolutionExplorer": false
 }

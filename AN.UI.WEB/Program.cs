@@ -8,8 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IServiceFlight, ServiceFlight>();
+builder.Services.AddScoped<IServicePlane, ServicePlane>();
 //IServiceFlight = new ServiceFlight();
-builder.Services.AddScoped<IUnitOfWork, IUnitOfWork>();//Obligatoire!!//
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();//Obligatoire!!//
 //IunitOfWork UOW = new UnitOfWork(dbContext, Type);
 builder.Services.AddDbContext<DbContext,AMContext>();//Obligatoire!!//
 builder.Services
