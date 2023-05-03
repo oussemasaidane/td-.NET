@@ -26,6 +26,23 @@ namespace AN.UI.WEB.Controllers
             return View(flights);
         }
 
+        public ActionResult search( string departure, string destination )
+        {
+            if (departure!=null)
+            {
+                var flights = serviceFlight.GetAll().Where(f => f.Departure.Contains(departure));
+                return View("index", flights);
+
+            }
+            else 
+            {
+                var flights = serviceFlight.GetAll().Where(f => f.Destination.Contains(destination));
+                return View("index", flights);
+
+            }
+
+
+        }
         // GET: FlightController/Details/5
         public ActionResult Details(int id)
         {
@@ -60,16 +77,20 @@ namespace AN.UI.WEB.Controllers
         // GET: FlightController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var list = servicePlane.GetAll();
+            ViewBag.Planes = new SelectList( list, "PlaneId","Information");
+            return View(serviceFlight.GetById(id));
         }
 
         // POST: FlightController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Flight collection)
         {
             try
             {
+                serviceFlight.Update(collection);
+                serviceFlight.Commit();
                 return RedirectToAction(nameof(Index));
             }
             catch

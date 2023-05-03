@@ -1,10 +1,17 @@
-﻿@model IEnumerable<AM.ApplicationCore.Domain.Flight>
+﻿    @model IEnumerable<AM.ApplicationCore.Domain.Flight>
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
+
+<form asp-action="search">
+    <input type="text" name="departure"/>
+    <input type="text" name="destination" />
+    <input type="submit" value="search"/>
+</form>
+
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -67,7 +74,7 @@
                 @Html.DisplayFor(modelItem => item.PlaneId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Edit", "Edit", new {  id=item.FlightId  }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>

@@ -4,9 +4,13 @@
     "\\AM.ApplicationCore",
     "\\AM.ApplicationCore\\Interfaces",
     "\\AM.ApplicationCore\\Services",
+    "\\AM.Infrastructure",
     "\\AN.UI.WEB",
-    "\\AN.UI.WEB\\Controllers"
+    "\\AN.UI.WEB\\Controllers",
+    "\\AN.UI.WEB\\Views",
+    "\\AN.UI.WEB\\Views\\Flight",
+    "\\AN.UI.WEB\\Views\\Plane"
   ],
-  "SelectedNode": "\\AM.ApplicationCore\\Services\\ServiceFlight.cs",
+  "SelectedNode": "\\AN.UI.WEB\\Views\\Flight\\Create.cshtml",
   "PreviewInSolutionExplorer": false
 }
