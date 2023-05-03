@@ -16,7 +16,7 @@ namespace AN.UI.WEB.Controllers
         // GET: PlaneController
         public ActionResult Index()
         {
-            var planes = servicePlane.GetAll();
+            var planes = servicePlane.GetAll().ToList();
             return View(planes);
         }
 

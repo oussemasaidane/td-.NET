@@ -19,11 +19,11 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Airline)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.FlightId)
+            </th><th>
+                @Html.DisplayNameFor(model => model.Pilot)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FlightDate)
@@ -43,6 +43,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.PlaneId)
             </th>
+            <th>
+                Plane Details
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -51,6 +54,8 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Airline)
+            </td><td>
+               <img src="~/upload/@item.Pilot">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FlightId)
@@ -72,6 +77,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PlaneId)
+            </td>
+            <td>
+                <partial name="_PlaneDetails" model="item.Plane"/>
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {  id=item.FlightId  }) |

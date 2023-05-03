@@ -22,7 +22,7 @@ namespace AN.UI.WEB.Controllers
         // GET: FlightController
         public ActionResult Index()
         {
-            var flights = serviceFlight.GetAll();
+            var flights = serviceFlight.GetAll().ToList();
             return View(flights);
         }
 
@@ -59,13 +59,17 @@ namespace AN.UI.WEB.Controllers
         // POST: FlightController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Flight collection)
+        public ActionResult Create(Flight collection, IFormFile PilotFile)
         {
             try
             {
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "upload", PilotFile.FileName);
+                var stream = new FileStream(path, FileMode.Create);
+                PilotFile.CopyTo(stream);
+                collection.Pilot = PilotFile.FileName;
                 serviceFlight.Add(collection);
                 serviceFlight.Commit();
-
+                
                 return RedirectToAction(nameof(Index));
             }
             catch

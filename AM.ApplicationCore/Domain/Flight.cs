@@ -20,6 +20,7 @@ namespace AM.ApplicationCore.Domain
         //public virtual List<Passenger> Passengers { get; set; }
         public virtual List<Ticket> Tickets { get; set; }
         public  virtual Plane Plane { get; set; }
+        public string Pilot { get; set; }
         [ForeignKey("Plane")]
         public virtual int PlaneId { get; set; }
         //TP1-Q6: Réimplémenter la méthode ToString()
